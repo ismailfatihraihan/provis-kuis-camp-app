@@ -156,7 +156,7 @@ class PromotionsScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  
+
                   // Flash sale items grid
                   GridView.builder(
                     shrinkWrap: true,
@@ -170,44 +170,52 @@ class PromotionsScreen extends StatelessWidget {
                     itemCount: 4,
                     itemBuilder: (context, index) {
                       final item = featuredItems[index % featuredItems.length];
-                      
+
                       return Card(
-                        clipBehavior: Clip.antiAlias,
+                        clipBehavior: Clip.antiAlias, // Hindari overflow dari gambar
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Stack(
-                              children: [
-                                AspectRatio(
-                                  aspectRatio: 1,
-                                  child: Image.network(
-                                    item.imageUrl,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Positioned(
-                                  top: 8,
-                                  right: 8,
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 8,
-                                      vertical: 4,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.red,
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: const Text(
-                                      '-30%',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 12,
+                            Expanded(
+                              child: Stack(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: const BorderRadius.vertical(
+                                      top: Radius.circular(8),
+                                    ), // Membantu menghindari overflow sudut
+                                    child: AspectRatio(
+                                      aspectRatio: 1,
+                                      child: Image.network(
+                                        item.imageUrl,
+                                        fit: BoxFit.cover,
+                                        width: double.infinity, // Pastikan gambar mengisi seluruh ruang
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                  Positioned(
+                                    top: 8,
+                                    right: 8,
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 8,
+                                        vertical: 4,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: Colors.red,
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: const Text(
+                                        '-30%',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8),
@@ -255,7 +263,7 @@ class PromotionsScreen extends StatelessWidget {
               ),
             ),
           ),
-          
+
           const SizedBox(height: 24),
           
           // Referral program

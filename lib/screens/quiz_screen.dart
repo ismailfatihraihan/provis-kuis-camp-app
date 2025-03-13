@@ -9,6 +9,8 @@ class QuizScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Quiz 1: UI'),
         centerTitle: true,
+        backgroundColor: const Color(0xFF132A13), // Deep Forest Green
+        foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -23,73 +25,70 @@ class QuizScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
+                    color: Color(0xFF132A13), // Deep Green
                   ),
                 ),
               ),
               const SizedBox(height: 30),
-              
+
               _buildNavigationButton(
                 context,
                 'Halaman Depan',
                 () => Navigator.pushNamed(context, '/'),
               ),
-              
               _buildNavigationButton(
                 context,
                 'Rincian Item',
                 () => Navigator.pushNamed(context, '/item-detail'),
               ),
-              
               _buildNavigationButton(
                 context,
                 'Chat',
                 () => Navigator.pushNamed(context, '/chat'),
               ),
-              
               _buildNavigationButton(
                 context,
-                'wishlist',
+                'Wishlist',
                 () => Navigator.pushNamed(context, '/wishlist'),
               ),
-              
               _buildNavigationButton(
                 context,
                 'Keranjang & Checkout',
                 () => Navigator.pushNamed(context, '/cart'),
               ),
-              
               _buildNavigationButton(
                 context,
                 'Pembelian Paket',
                 () => Navigator.pushNamed(context, '/promotions'),
               ),
-              
+
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.0),
                 child: Divider(
                   height: 1,
                   thickness: 1,
+                  color: Color(0xFFA68A64), // Muted Gold for contrast
                 ),
               ),
-              
+
               const Center(
                 child: Text(
                   'Transaksi',
                   style: TextStyle(
                     fontSize: 16,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF132A13), // Deep Green
                   ),
                 ),
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               _buildNavigationButton(
                 context,
                 'Monitor Pesanan',
                 () => Navigator.pushNamed(context, '/transactions'),
               ),
-              
               _buildNavigationButton(
                 context,
                 'Pengembalian',
@@ -101,7 +100,7 @@ class QuizScreen extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildNavigationButton(
     BuildContext context,
     String label,
@@ -112,12 +111,13 @@ class QuizScreen extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF26A69A), // Updated to teal color
+          backgroundColor: const Color(0xFF132A13), // Deep Forest Green
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(12),
           ),
           padding: const EdgeInsets.symmetric(vertical: 16),
+          elevation: 3,
         ),
         child: Text(
           label,
@@ -130,4 +130,3 @@ class QuizScreen extends StatelessWidget {
     );
   }
 }
-

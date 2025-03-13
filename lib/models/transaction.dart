@@ -68,9 +68,9 @@ final List<Transaction> sampleTransactions = [
     id: 'TRX-002',
     items: [
       CartItem(
-        item: popularItems[2],
-        quantity: 1,
-        days: 2,
+        item: popularItems[1],
+        quantity: 2,
+        days: 4,
       ),
     ],
     rentalStart: DateTime.now(),

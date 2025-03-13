@@ -3,7 +3,8 @@
 Aplikasi *Go Camp* ini adalah aplikasi sederhana yang memberikan tampilan visual untuk menjelajahi pilihan camping dan perlengkapan yang dapat disewa. Aplikasi ini fokus pada antarmuka pengguna tanpa fungsionalitas pemrograman.
 
 ## Tampilan Aplikasi Go Camp
-![homepage (2)](https://github.com/user-attachments/assets/2bb0987f-bed5-4874-b37e-5b67673caa5a)
+![image](https://github.com/user-attachments/assets/be9bef84-94be-4463-991c-2fea850fec14)
+
 
 ## Persona User dan Pain Point
 

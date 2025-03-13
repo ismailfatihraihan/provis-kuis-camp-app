@@ -103,38 +103,50 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                   
                   // Rating
                   Row(
-                    children: [
-                      Row(
-                        children: List.generate(5, (index) {
-                          return Icon(
-                            index < item.rating.floor()
-                                ? Icons.star
-                                : index < item.rating 
-                                    ? Icons.star_half
-                                    : Icons.star_border,
-                            color: Theme.of(context).colorScheme.secondary,
-                            size: 20,
-                          );
-                        }),
-                      ),
-                      const SizedBox(width: 8),
-                      Text(
-                        '${item.rating} (${item.reviewCount} reviews)',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      const Spacer(),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(
-                            context, 
-                            '/reviews',
-                            arguments: item,
-                          );
-                        },
-                        child: const Text('See All Reviews'),
-                      ),
-                    ],
-                  ),
+					  children: [
+						Row(
+						  children: List.generate(5, (index) {
+							return Icon(
+							  index < item.rating.floor()
+								  ? Icons.star
+								  : index < item.rating 
+									  ? Icons.star_half
+									  : Icons.star_border,
+							  color: Theme.of(context).colorScheme.secondary,
+							  size: 20,
+							);
+						  }),
+						),
+						const SizedBox(width: 8),
+
+						// Expanded to prevent text overflow
+						Expanded(
+						  child: Text(
+							'${item.rating} (${item.reviewCount} reviews)',
+							style: Theme.of(context).textTheme.bodyMedium,
+							overflow: TextOverflow.ellipsis,  // Avoids text overflow
+							softWrap: false,
+						  ),
+						),
+
+						const SizedBox(width: 8), // Ensures spacing before button
+
+						// Flexible to prevent button overflow
+						Flexible(
+						  child: TextButton(
+							onPressed: () {
+							  Navigator.pushNamed(
+								context, 
+								'/reviews',
+								arguments: item,
+							  );
+							},
+							child: const Text('See All Reviews'),
+						  ),
+						),
+					  ],
+					),
+
                   
                   const Divider(height: 32),
                   
@@ -175,106 +187,114 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                   const SizedBox(height: 16),
                   
                   Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text('Quantity'),
-                            const SizedBox(height: 8),
-                            Row(
-                              children: [
-                                _buildCounterButton(
-                                  icon: Icons.remove,
-                                  onPressed: _quantity > 1
-                                      ? () {
-                                          setState(() {
-                                            _quantity--;
-                                          });
-                                        }
-                                      : null,
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.symmetric(horizontal: 12),
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 8,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.grey[300]!),
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                  child: Text(
-                                    _quantity.toString(),
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                                _buildCounterButton(
-                                  icon: Icons.add,
-                                  onPressed: () {
-                                    setState(() {
-                                      _quantity++;
-                                    });
-                                  },
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text('Rental Days'),
-                            const SizedBox(height: 8),
-                            Row(
-                              children: [
-                                _buildCounterButton(
-                                  icon: Icons.remove,
-                                  onPressed: _days > 1
-                                      ? () {
-                                          setState(() {
-                                            _days--;
-                                          });
-                                        }
-                                      : null,
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.symmetric(horizontal: 12),
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 8,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.grey[300]!),
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                  child: Text(
-                                    _days.toString(),
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                                _buildCounterButton(
-                                  icon: Icons.add,
-                                  onPressed: () {
-                                    setState(() {
-                                      _days++;
-                                    });
-                                  },
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+					  children: [
+						// Bagian Quantity
+						Flexible(
+						  child: Column(
+							crossAxisAlignment: CrossAxisAlignment.start,
+							children: [
+							  const Text(
+								'Quantity',
+								overflow: TextOverflow.ellipsis,  // Mencegah teks terlalu panjang
+							  ),
+							  const SizedBox(height: 8),
+							  Row(
+								mainAxisAlignment: MainAxisAlignment.spaceBetween,
+								children: [
+								  _buildCounterButton(
+									icon: Icons.remove,
+									onPressed: _quantity > 1
+										? () {
+											setState(() {
+											  _quantity--;
+											});
+										  }
+										: null,
+								  ),
+								  Container(
+									margin: const EdgeInsets.symmetric(horizontal: 8),
+									padding: const EdgeInsets.symmetric(
+									  horizontal: 12,
+									  vertical: 6,
+									),
+									decoration: BoxDecoration(
+									  border: Border.all(color: Colors.grey[300]!),
+									  borderRadius: BorderRadius.circular(4),
+									),
+									child: Text(
+									  _quantity.toString(),
+									  style: const TextStyle(fontWeight: FontWeight.bold),
+									),
+								  ),
+								  _buildCounterButton(
+									icon: Icons.add,
+									onPressed: () {
+									  setState(() {
+										_quantity++;
+									  });
+									},
+								  ),
+								],
+							  ),
+							],
+						  ),
+						),
+
+						const SizedBox(width: 16),
+
+						// Bagian Rental Days
+						Flexible(
+						  child: Column(
+							crossAxisAlignment: CrossAxisAlignment.start,
+							children: [
+							  const Text(
+								'Rental Days',
+								overflow: TextOverflow.ellipsis,
+							  ),
+							  const SizedBox(height: 8),
+							  Row(
+								mainAxisAlignment: MainAxisAlignment.spaceBetween,
+								children: [
+								  _buildCounterButton(
+									icon: Icons.remove,
+									onPressed: _days > 1
+										? () {
+											setState(() {
+											  _days--;
+											});
+										  }
+										: null,
+								  ),
+								  Container(
+									margin: const EdgeInsets.symmetric(horizontal: 8),
+									padding: const EdgeInsets.symmetric(
+									  horizontal: 12,
+									  vertical: 6,
+									),
+									decoration: BoxDecoration(
+									  border: Border.all(color: Colors.grey[300]!),
+									  borderRadius: BorderRadius.circular(4),
+									),
+									child: Text(
+									  _days.toString(),
+									  style: const TextStyle(fontWeight: FontWeight.bold),
+									),
+								  ),
+								  _buildCounterButton(
+									icon: Icons.add,
+									onPressed: () {
+									  setState(() {
+										_days++;
+									  });
+									},
+								  ),
+								],
+							  ),
+							],
+						  ),
+						),
+					  ],
+					),
                   
                   const SizedBox(height: 24),
                   

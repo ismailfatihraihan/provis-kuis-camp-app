@@ -178,7 +178,9 @@ class _CartScreenState extends State<CartScreen> {
                   const SizedBox(height: 8),
                   
                   // Quantity and days selection
-                  Row(
+				  SingleChildScrollView(
+				  scrollDirection: Axis.horizontal,
+				  child: Row(
                     children: [
                       // Quantity selector
                       Column(
@@ -277,6 +279,7 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                     ],
                   ),
+				  ),
                 ],
               ),
             ),

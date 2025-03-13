@@ -19,7 +19,7 @@ class QuizScreen extends StatelessWidget {
               const SizedBox(height: 10),
               const Center(
                 child: Text(
-                  'No kelompok praktikum: XY',
+                  'No kelompok praktikum: 64',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
@@ -48,7 +48,7 @@ class QuizScreen extends StatelessWidget {
               
               _buildNavigationButton(
                 context,
-                'wishlist',
+                'Wishlist',
                 () => Navigator.pushNamed(context, '/wishlist'),
               ),
               

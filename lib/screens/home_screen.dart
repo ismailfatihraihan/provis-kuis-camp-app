@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('CampGear Rental'),
+        title: const Text('Go Camp'),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -44,8 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               image: const DecorationImage(
-                image: NetworkImage(
-                  'https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?q=80&w=1470&auto=format&fit=crop',
+                image: AssetImage(
+                  'assets/images/decor.jpg',
                 ),
                 fit: BoxFit.cover,
               ),

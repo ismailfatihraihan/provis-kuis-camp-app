@@ -90,26 +90,38 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Row(
-          children: [
-            const CircleAvatar(
-              backgroundImage: NetworkImage('https://randomuser.me/api/portraits/women/45.jpg'),
-            ),
-            const SizedBox(width: 12),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text('Admin Support'),
-                Text(
-                  'Online',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.white.withOpacity(0.8),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+		  children: [
+			const CircleAvatar(
+			  backgroundImage: NetworkImage(
+				'https://randomuser.me/api/portraits/women/45.jpg',
+			  ),
+			),
+			const SizedBox(width: 12),
+
+			// Gunakan Expanded agar teks tidak menyebabkan overflow
+			Expanded(
+			  child: Column(
+				crossAxisAlignment: CrossAxisAlignment.start,
+				children: [
+				  const Text(
+					'Admin Support',
+					overflow: TextOverflow.ellipsis,  // Hindari overflow teks panjang
+					maxLines: 1, // Batasi hanya 1 baris
+				  ),
+				  Text(
+					'Online',
+					style: TextStyle(
+					  fontSize: 12,
+					  color: Colors.white.withOpacity(0.8),
+					),
+					overflow: TextOverflow.ellipsis, // Hindari overflow pada teks status
+					maxLines: 1,
+				  ),
+				],
+			  ),
+			),
+		  ],
+		),
         actions: [
           IconButton(
             icon: const Icon(Icons.call),

@@ -19,7 +19,7 @@ class QuizScreen extends StatelessWidget {
               const SizedBox(height: 10),
               const Center(
                 child: Text(
-                  'No kelompok praktikum: 64',
+                  'No kelompok praktikum: XY',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
@@ -48,7 +48,7 @@ class QuizScreen extends StatelessWidget {
               
               _buildNavigationButton(
                 context,
-                'Wishlist',
+                'wishlist',
                 () => Navigator.pushNamed(context, '/wishlist'),
               ),
               
@@ -93,14 +93,7 @@ class QuizScreen extends StatelessWidget {
               _buildNavigationButton(
                 context,
                 'Pengembalian',
-                () {
-                  // This would navigate to a returns page if it existed
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Returns page not implemented yet'),
-                    ),
-                  );
-                },
+                () => Navigator.pushNamed(context, '/returns'),
               ),
             ],
           ),
@@ -119,7 +112,7 @@ class QuizScreen extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF2E7D32), // Green color as requested
+          backgroundColor: const Color(0xFF26A69A), // Updated to teal color
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),

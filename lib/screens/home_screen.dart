@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Go Camp'),
+        title: const Text('CampGear Rental'),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -44,8 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               image: const DecorationImage(
-                image: AssetImage(
-                  'assets/images/decor.jpg',
+                image: NetworkImage(
+                  'https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?q=80&w=1470&auto=format&fit=crop',
                 ),
                 fit: BoxFit.cover,
               ),
@@ -234,38 +234,46 @@ class _HomeScreenState extends State<HomeScreen> {
               Navigator.pushNamed(context, '/wishlist');
               break;
             case 2:
-              Navigator.pushNamed(context, '/cart');
+              Navigator.pushNamed(context, '/chat');
               break;
             case 3:
+              Navigator.pushNamed(context, '/cart');
+              break;
+            case 4:
               Navigator.pushNamed(context, '/transactions');
               break;
-          }
-        },
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Theme.of(context).primaryColor,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            activeIcon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_outline),
-            activeIcon: Icon(Icons.favorite),
-            label: 'Wishlist',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
-            activeIcon: Icon(Icons.shopping_cart),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.receipt_long_outlined),
-            activeIcon: Icon(Icons.receipt_long),
-            label: 'Orders',
-          ),
-        ],
-      ),
+        }
+      },
+      type: BottomNavigationBarType.fixed,
+      selectedItemColor: Theme.of(context).primaryColor,
+      items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined),
+          activeIcon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.favorite_outline),
+          activeIcon: Icon(Icons.favorite),
+          label: 'Wishlist',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.chat_outlined),
+          activeIcon: Icon(Icons.chat),
+          label: 'Chat',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.shopping_cart_outlined),
+          activeIcon: Icon(Icons.shopping_cart),
+          label: 'Cart',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.receipt_long_outlined),
+          activeIcon: Icon(Icons.receipt_long),
+          label: 'Orders',
+        ),
+      ],
+    ),
     );
   }
 

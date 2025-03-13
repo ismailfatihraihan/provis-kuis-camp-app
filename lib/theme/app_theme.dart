@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
-      primaryColor: const Color(0xFF2E7D32), // forest green
+      primaryColor: const Color(0xFF26A69A), // teal shade instead of forest green
       colorScheme: ColorScheme.fromSeed(
-        seedColor: const Color(0xFF2E7D32),
+        seedColor: const Color(0xFF26A69A),
         secondary: const Color(0xFFFFA000), // amber
         background: const Color(0xFFF5F5F5),
       ),
@@ -31,13 +31,13 @@ class AppTheme {
         ),
       ),
       appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0xFF2E7D32),
+        backgroundColor: Color(0xFF26A69A),
         foregroundColor: Colors.white,
         elevation: 0,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF2E7D32),
+          backgroundColor: const Color(0xFF26A69A),
           foregroundColor: Colors.white,
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
           shape: RoundedRectangleBorder(
@@ -47,8 +47,8 @@ class AppTheme {
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: const Color(0xFF2E7D32),
-          side: const BorderSide(color: Color(0xFF2E7D32)),
+          foregroundColor: const Color(0xFF26A69A),
+          side: const BorderSide(color: Color(0xFF26A69A)),
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
@@ -68,7 +68,7 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: Color(0xFF2E7D32)),
+          borderSide: const BorderSide(color: Color(0xFF26A69A)),
         ),
         filled: true,
         fillColor: Colors.white,

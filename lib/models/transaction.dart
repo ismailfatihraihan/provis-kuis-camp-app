@@ -1,4 +1,3 @@
-// Import statement needed at the top of the file
 import 'camping_item.dart';
 
 enum TransactionStatus {
@@ -44,8 +43,6 @@ class CartItem {
   double get totalPrice => item.price * quantity * days;
 }
 
-// Import statement needed at the top of the file
-// import 'camping_item.dart';
 
 final List<Transaction> sampleTransactions = [
   Transaction(
@@ -101,5 +98,24 @@ final List<Transaction> sampleTransactions = [
     status: TransactionStatus.pending,
     notes: 'Please provide items in clean condition',
   ),
+  Transaction(
+    id: 'TRX-004',
+    items: [
+      CartItem(
+        item: featuredItems[2],
+        quantity: 1,
+        days: 4,
+      ),
+      CartItem(
+        item: popularItems[1],
+        quantity: 2,
+        days: 4,
+      ),
+    ],
+    rentalStart: DateTime.now().subtract(const Duration(days: 2)),
+    rentalEnd: DateTime.now().add(const Duration(days: 2)),
+    totalPrice: 72.0,
+    status: TransactionStatus.inUse,
+    notes: 'Please handle with care',
+  ),
 ];
-

@@ -7,7 +7,8 @@ import 'screens/wishlist_screen.dart';
 import 'screens/cart_screen.dart';
 import 'screens/promotions_screen.dart';
 import 'screens/transactions_screen.dart';
-import 'screens/quiz_screen.dart'; // Add import for the new screen
+import 'screens/quiz_screen.dart';
+import 'screens/returns_screen.dart'; // Add import for the new screen
 import 'theme/app_theme.dart';
 
 void main() {
@@ -23,7 +24,7 @@ class CampingRentalApp extends StatelessWidget {
       title: 'Camping Rental',
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: '/quiz', // Change initial route to show the quiz screen first
+      initialRoute: '/quiz',
       routes: {
         '/': (context) => const HomeScreen(),
         '/item-detail': (context) => const ItemDetailScreen(),
@@ -33,7 +34,8 @@ class CampingRentalApp extends StatelessWidget {
         '/cart': (context) => const CartScreen(),
         '/promotions': (context) => const PromotionsScreen(),
         '/transactions': (context) => const TransactionsScreen(),
-        '/quiz': (context) => const QuizScreen(), // Add the new route
+        '/quiz': (context) => const QuizScreen(),
+        '/returns': (context) => const ReturnsScreen(), // Add the new route
       },
     );
   }

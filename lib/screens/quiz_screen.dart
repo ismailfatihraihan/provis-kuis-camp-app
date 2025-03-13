@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
 
-class QuizScreen extends StatelessWidget {
+class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
+
+  @override
+  _QuizScreenState createState() => _QuizScreenState();
+}
+
+class _QuizScreenState extends State<QuizScreen> {
+  final Set<String> visitedPages = {}; // Menyimpan halaman yang sudah dikunjungi
+
+  void _navigateToPage(BuildContext context, String route) {
+    setState(() {
+      visitedPages.add(route); // Tandai halaman sebagai dikunjungi
+    });
+    Navigator.pushNamed(context, route);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +25,7 @@ class QuizScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: const Color(0xFF132A13), // Deep Forest Green
         foregroundColor: Colors.white,
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -31,36 +46,12 @@ class QuizScreen extends StatelessWidget {
               ),
               const SizedBox(height: 30),
 
-              _buildNavigationButton(
-                context,
-                'Halaman Depan',
-                () => Navigator.pushNamed(context, '/'),
-              ),
-              _buildNavigationButton(
-                context,
-                'Rincian Item',
-                () => Navigator.pushNamed(context, '/item-detail'),
-              ),
-              _buildNavigationButton(
-                context,
-                'Chat',
-                () => Navigator.pushNamed(context, '/chat'),
-              ),
-              _buildNavigationButton(
-                context,
-                'Wishlist',
-                () => Navigator.pushNamed(context, '/wishlist'),
-              ),
-              _buildNavigationButton(
-                context,
-                'Keranjang & Checkout',
-                () => Navigator.pushNamed(context, '/cart'),
-              ),
-              _buildNavigationButton(
-                context,
-                'Pembelian Paket',
-                () => Navigator.pushNamed(context, '/promotions'),
-              ),
+              _buildNavigationButton(context, 'Halaman Depan', '/'),
+              _buildNavigationButton(context, 'Rincian Item', '/item-detail'),
+              _buildNavigationButton(context, 'Chat', '/chat'),
+              _buildNavigationButton(context, 'Wishlist', '/wishlist'),
+              _buildNavigationButton(context, 'Keranjang & Checkout', '/cart'),
+              _buildNavigationButton(context, 'Pembelian Paket', '/promotions'),
 
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.0),
@@ -84,16 +75,8 @@ class QuizScreen extends StatelessWidget {
 
               const SizedBox(height: 16),
 
-              _buildNavigationButton(
-                context,
-                'Monitor Pesanan',
-                () => Navigator.pushNamed(context, '/transactions'),
-              ),
-              _buildNavigationButton(
-                context,
-                'Pengembalian',
-                () => Navigator.pushNamed(context, '/returns'),
-              ),
+              _buildNavigationButton(context, 'Monitor Pesanan', '/transactions'),
+              _buildNavigationButton(context, 'Pengembalian', '/returns'),
             ],
           ),
         ),
@@ -101,17 +84,15 @@ class QuizScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildNavigationButton(
-    BuildContext context,
-    String label,
-    VoidCallback onPressed,
-  ) {
+  Widget _buildNavigationButton(BuildContext context, String label, String route) {
+    bool isVisited = visitedPages.contains(route);
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6.0),
       child: ElevatedButton(
-        onPressed: onPressed,
+        onPressed: () => _navigateToPage(context, route),
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF132A13), // Deep Forest Green
+          backgroundColor: isVisited ? const Color(0xFF4F7942) : const Color(0xFF132A13), // Warna pudar jika sudah dikunjungi
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),

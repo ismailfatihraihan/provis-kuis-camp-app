@@ -5,7 +5,6 @@ Aplikasi *Go Camp* ini adalah aplikasi sederhana yang memberikan tampilan visual
 ## Tampilan Aplikasi Go Camp
 ![homepage (2)](https://github.com/user-attachments/assets/2bb0987f-bed5-4874-b37e-5b67673caa5a)
 
-
 ## Persona User dan Pain Point
 
 **Persona User:**
@@ -44,5 +43,11 @@ Menampilkan paket promosi dan hemat untuk pengguna yang mencari penawaran khusus
 ### 8. Daftar Transaksi
 Mengelola status transaksi dan pengembalian item yang disewa.
 
----
+## Struktur Direktori
+**lib**  
+|--**models**  -> Berisi model data aplikasi, seperti item perlengkapan camping, transaksi, dan wishlist.  
+|--**screens** -> Berisi halaman-halaman aplikasi, seperti halaman depan, detail item, dan wishlist.  
+|--**theme**   -> Mengatur tema dan gaya visual aplikasi, termasuk warna, font, dan gaya UI.  
+|__**widgets** -> Berisi widget reusable seperti tombol, card, dan rating untuk digunakan di berbagai layar.  
+**main.dart**  -> titik masuk aplikasi yang menginisialisasi tema serta tampilan awal aplikasi.
 

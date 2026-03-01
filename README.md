@@ -1,54 +1,67 @@
-# Go Camp
+# 🏕️ Go Camp
 
-Aplikasi *Go Camp* ini adalah aplikasi sederhana yang memberikan tampilan visual untuk menjelajahi pilihan camping dan perlengkapan yang dapat disewa. Aplikasi ini fokus pada antarmuka pengguna tanpa fungsionalitas pemrograman.
+**Go Camp** is a mobile app UI concept for exploring camping destinations and renting camping gear. This project focuses on delivering a clean, intuitive user interface — built with Flutter.
 
-## Tampilan Aplikasi Go Camp
-![image](https://github.com/user-attachments/assets/be9bef84-94be-4463-991c-2fea850fec14)
+![Go Camp App Preview](https://github.com/user-attachments/assets/be9bef84-94be-4463-991c-2fea850fec14)
 
+---
 
-## Persona User dan Pain Point
+## 🎯 Target Users & Pain Points
 
-**Persona User:**
-- Pengguna yang baru pertama kali berkemah dan membutuhkan panduan.
-- Pengguna yang mencari kemudahan dalam memilih perlengkapan camping yang sesuai.
-- Pengguna yang ingin mengeksplorasi tempat camping dan perlengkapan dengan rating dan review.
+**Who is this for?**
+- First-time campers who need guidance choosing the right gear
+- Users looking for a one-stop platform to browse camping spots and equipment
+- People who want to make decisions based on ratings and reviews
 
-**Pain Point:**
-- Pengguna kesulitan mencari tempat camping atau perlengkapan yang tepat tanpa informasi yang jelas.
-- Pengguna baru sering bingung dengan berbagai pilihan dan membutuhkan bantuan dalam proses pemesanan.
-- Sulit untuk memantau status pesanan atau melakukan pembelian dalam satu platform.
+**Problems this app solves:**
+- Hard to find reliable camping spots or gear without clear information
+- Beginners feel overwhelmed by too many options
+- No single platform to browse, order, and track camping rentals
 
-## Fitur
+---
 
-### 1. Halaman Depan
-Menampilkan pilihan tempat camping dan perlengkapan dengan menu navigasi yang mudah diakses.
+## ✨ Features
 
-### 2. Detail Item
-Informasi lengkap tentang perlengkapan atau tempat camping, termasuk harga, fasilitas, dan gambar.
+| Feature | Description |
+|---|---|
+| 🏠 Home Page | Browse camping spots and gear with easy navigation |
+| 📋 Item Detail | Full info including price, facilities, and photos |
+| ⭐ Reviews & Ratings | Community reviews to help users make better decisions |
+| 💬 Chat with Admin | Direct support for first-time campers |
+| ❤️ Wishlist | Save favorite items for later reference |
+| 🛒 Cart & Checkout | Seamless item selection and checkout flow |
+| 🏷️ Promos & Bundles | Special deals and discounted packages |
+| 📦 Transaction History | Track order status and rental returns |
 
-### 3. Review dan Rating
-Review dan rating dari penyewa sebelumnya untuk membantu pengguna memilih item yang tepat.
+---
 
-### 4. Chat dengan Admin
-Fitur chat untuk membantu pengguna yang baru pertama kali berkemah dengan pertanyaan atau panduan.
+## 📁 Project Structure
 
-### 5. Daftar Wishlist
-Pengguna dapat menyimpan item yang diminati ke dalam wishlist untuk referensi di masa depan.
+```
+lib/
+├── models/     # Data models (gear items, transactions, wishlist)
+├── screens/    # App pages (home, item detail, wishlist, etc.)
+├── theme/      # App theme (colors, fonts, UI styles)
+└── widgets/    # Reusable components (buttons, cards, rating)
+main.dart       # App entry point — initializes theme and first screen
+```
 
-### 6. Keranjang dan Checkout
-Memudahkan pengguna untuk memilih item dan melanjutkan ke proses checkout.
+---
 
-### 7. Paket Hemat, Promosi
-Menampilkan paket promosi dan hemat untuk pengguna yang mencari penawaran khusus.
+## 🛠️ Built With
 
-### 8. Daftar Transaksi
-Mengelola status transaksi dan pengembalian item yang disewa.
+- [Flutter](https://flutter.dev/)
+- Dart
 
-## Struktur Direktori
-**lib**  
-|--**models**  -> Berisi model data aplikasi, seperti item perlengkapan camping, transaksi, dan wishlist.  
-|--**screens** -> Berisi halaman-halaman aplikasi, seperti halaman depan, detail item, dan wishlist.  
-|--**theme**   -> Mengatur tema dan gaya visual aplikasi, termasuk warna, font, dan gaya UI.  
-|__**widgets** -> Berisi widget reusable seperti tombol, card, dan rating untuk digunakan di berbagai layar.  
-**main.dart**  -> titik masuk aplikasi yang menginisialisasi tema serta tampilan awal aplikasi.
+---
 
+## 🚀 Getting Started
+
+```bash
+git clone https://github.com/ismailfatihraihan/provis-kuis-camp-app.git
+cd provis-kuis-camp-app
+flutter pub get
+flutter run
+```
+
+> **Note:** This project is a UI prototype. Backend functionality is not yet implemented.
